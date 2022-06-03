@@ -20,4 +20,6 @@
     <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="br.com.calixto.exception.UnsuportadedMathOperation"/>
     <fullyQualifiedTypeName name="org.springframework.expression.spel.ast.OperatorPower"/>
+    <fullyQualifiedTypeName name="br.com.calixto.request.converters.NumberConverter"/>
+    <fullyQualifiedTypeName name="br.com.calixto.math.SimpleMath"/>
 </qualifiedTypeNameHistroy>
