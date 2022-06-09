@@ -14,6 +14,28 @@ public class PersonServices {
 	
 	private final AtomicLong counter = new AtomicLong();
 	
+	public Person create(Person person) {		
+		return person;
+	}
+	
+	public Person update(Person person) {		
+		return person;
+	}
+	
+	public void delete(String id) {
+		
+	}
+	
+	public Person findById(String id) {
+		Person person = new Person();
+		person.setId(counter.incrementAndGet());
+		person.setFirstName("Jackson");
+		person.setLastName("Calixto");
+		person.setAddress("Araquari - Santa Catarina - Brazil");
+		person.setGender("Male");
+		return person;
+	}
+	
 	public List<Person> findAll() {
 		List<Person> persons = new ArrayList<Person>();
 		
@@ -25,16 +47,6 @@ public class PersonServices {
 		return persons;
 	}
 
-	public Person findById(String id) {
-		Person person = new Person();
-		person.setId(counter.incrementAndGet());
-		person.setFirstName("Jackson");
-		person.setLastName("Calixto");
-		person.setAddress("Araquari - Santa Catarina - Brazil");
-		person.setGender("Male");
-		return person;
-	}
-	
 	private Person mockPerson() {
 		Person person = new Person();
 		person.setId(counter.incrementAndGet());
