@@ -1,4 +1,4 @@
-package br.com.calixto;
+package br.com.calixto.model;
 
 public class Greeting {
 
