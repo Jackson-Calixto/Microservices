@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.calixto.configuration.GreetingConfiguration;
 import br.com.calixto.model.Greeting;
-import br.com.calixtog.configuration.GreetingConfiguration;
 
 @RestController
 public class GreetingController {
@@ -28,7 +28,7 @@ public class GreetingController {
 		
 		return new Greeting(
 				counter.incrementAndGet(), 
-				String.format(template, configuration.getGreenting(), name)
+				String.format(template, configuration.getGreeting(), name)
 			);
 	}
 }

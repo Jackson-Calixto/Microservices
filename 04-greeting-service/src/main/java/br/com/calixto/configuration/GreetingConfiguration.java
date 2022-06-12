@@ -1,4 +1,4 @@
-package br.com.calixtog.configuration;
+package br.com.calixto.configuration;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
