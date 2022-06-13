@@ -1,5 +1,6 @@
 # Change extension of this file to .gitignore
 
+*.log
 *.class
 
 # Mobile Tools for Java (J2ME)
