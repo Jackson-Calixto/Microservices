@@ -22,4 +22,8 @@
     <fullyQualifiedTypeName name="org.springframework.expression.spel.ast.OperatorPower"/>
     <fullyQualifiedTypeName name="br.com.calixto.request.converters.NumberConverter"/>
     <fullyQualifiedTypeName name="br.com.calixto.math.SimpleMath"/>
+    <fullyQualifiedTypeName name="javax.persistence.Entity"/>
+    <fullyQualifiedTypeName name="org.springframework.data.annotation.Id"/>
+    <fullyQualifiedTypeName name="javax.persistence.Id"/>
+    <fullyQualifiedTypeName name="javax.persistence.Transient"/>
 </qualifiedTypeNameHistroy>
