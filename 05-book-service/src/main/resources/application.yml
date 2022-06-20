@@ -5,7 +5,7 @@ spring:
     name: book-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/cambio_service?useTimezone=tru&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/book_service?useTimezone=tru&serverTimezone=UTC
     username: root
     password: Paradin123
   jpa:
@@ -14,6 +14,6 @@ spring:
     show-sql: true
   flyway:
     url: jdbc:mysql://localhost:3306/
-    schemas: cambio_service
+    schemas: book_service
     user: root
     password: Paradin123    
