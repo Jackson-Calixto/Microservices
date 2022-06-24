@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.calixto.model.Book;
 import br.com.calixto.proxy.CambioProxy;
 import br.com.calixto.repository.BookRepository;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
+@Tag(name = "Book endpoint")
 @RestController
 @RequestMapping("book-service")
 public class BookController {
@@ -24,6 +27,7 @@ public class BookController {
 	@Autowired
 	private CambioProxy proxy;
 
+	@Operation(summary = "Find a specific book by ID")
 	@GetMapping(value = "/{id}/{currency}")
 	public Book findBook(
 			@PathVariable("id") final Long id,
