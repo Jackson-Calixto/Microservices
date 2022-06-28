@@ -1,0 +1,15 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: calixto-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Jackson-Calixto/Microservices-config-server
+          #username: 
+          #password: 
+          default-label: main
+          search-paths:
+          - 'greeting-service*'
