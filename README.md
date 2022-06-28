@@ -21,3 +21,6 @@ RunAs -> Maven build
 Goals: spring-boot:build-image -DskipTests
 
 docker run -p 8761:8761 -d jacksoncalixto/naming-server:0.0.1-SNAPSHOT
+
+docker-compose up -d
+docker-compose down
