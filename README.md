@@ -24,3 +24,8 @@ docker run -p 8761:8761 -d jacksoncalixto/naming-server:0.0.1-SNAPSHOT
 
 docker-compose up -d
 docker-compose down
+
+ERROR BY HAVING DOCKER CLIENT STOPPED:
+.docker.errors.DockerException: Error while fetching server API version: (2, 'CreateFile', 'The system cannot find the file specified.')
+.[1052] Failed to execute script docker-compose
+
