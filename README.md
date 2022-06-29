@@ -29,3 +29,9 @@ ERROR BY HAVING DOCKER CLIENT STOPPED:
 .docker.errors.DockerException: Error while fetching server API version: (2, 'CreateFile', 'The system cannot find the file specified.')
 .[1052] Failed to execute script docker-compose
 
+cd .\10-api-gateway\
+mvn spring-boot:build-image -DskipTests
+cd ..
+
+SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411
+EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://localhost:8761/eureka
