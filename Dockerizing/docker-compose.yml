@@ -24,7 +24,7 @@ services:
     expose:
       - 3308
     networks:
-      - calixto-network  
+      - calixto-network
   book-db:
     image: mysql:8.0.29
     command: --default-authentication-plugin=mysql_native_password
@@ -42,7 +42,7 @@ services:
     expose:
       - 3310
     networks:
-      - calixto-network  
+      - calixto-network
   naming-server:
     image: jacksoncalixto/naming-server:0.0.1-SNAPSHOT
     ports:
@@ -59,7 +59,30 @@ services:
       EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
       SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411
     networks:
-      - calixto-network  
+      - calixto-network
+  cambio-service:
+    image: jacksoncalixto/cambio-service
+    restart: always
+    build: 
+      context: .
+      dockerfile: 10-cambio-service/Dockerfile
+    environment:
+      TZ: America/Sao_Paulo
+      EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
+      SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411
+      SPRING.DATASOURCE.URL: jdbc:mysql://cambio-db:3308/cambio_service?useSSL=false&serverTimezone=UTC&enabledTLSProtocols=TLSv1.2
+      SPRING.DATASOURCE.USERNAME: root
+      SPRING.DATASOURCE.PASSWORD: admin123
+      FLYWAY.URL: jdbc:mysql://cambio-db:3308/cambio_service?useSSL=false&serverTimezone=UTC&enabledTLSProtocols=TLSv1.2
+      FLYWAY.USER: root
+      FLYWAY.PASSWORD: admin123
+    ports:
+      - 8000:8000
+    depends_on:
+      - naming-server
+      - cambio-db
+    networks:
+      - calixto-network
 networks:
   calixto-network:
     driver: bridge
