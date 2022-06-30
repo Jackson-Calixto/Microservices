@@ -20,7 +20,7 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
   flyway:
-    url: jdbc:mysql://localhost:3308/cambio_service?useSSL=false&serverTimezone=UTC&enabledTLSProtocols=TLSv1.2
+    url: jdbc:mysql://localhost:3308/cambio_service?useSSL=false&serverTimezone=UTC&tlsVersions=TLSv1.2
     user: docker
     password: admin123
   sleuth:
