@@ -9,7 +9,7 @@ spring:
     name: cambio-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3308/cambio_service?useSSL=false&serverTimezone=UTC&enabledTLSProtocols=TLSv1.2
+    url: jdbc:mysql://localhost:3308/cambio_service?useSSL=false&serverTimezone=UTC&tlsVersions=TLSv1.2
     username: docker
     password: admin123
   jpa:
