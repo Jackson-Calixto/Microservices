@@ -18,9 +18,9 @@ services:
       MYSQL_PASSWORD: admin123
       MYSQL_DATABASE: cambio_service
       MYSQL_ROOT_HOST: '%'
-      MYSQL_TCP_PORT: 3308
+      MYSQL_TCP_PORT: 3306
     ports:
-      - 3308:3308
+      - 3308:3306
     expose:
       - 3308
     networks:
@@ -36,9 +36,9 @@ services:
       MYSQL_PASSWORD: admin123
       MYSQL_DATABASE: book_service
       MYSQL_ROOT_HOST: '%'
-      MYSQL_TCP_PORT: 3310
+      MYSQL_TCP_PORT: 3306
     ports:
-      - 3310:3310
+      - 3310:3306
     expose:
       - 3310
     networks:
@@ -70,12 +70,12 @@ services:
       TZ: America/Sao_Paulo
       EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
       SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411
-      SPRING.DATASOURCE.URL: jdbc:mysql://cambio-db:3308/cambio_service?useSSL=false&serverTimezone=UTC&enabledTLSProtocols=TLSv1.2
-      SPRING.DATASOURCE.USERNAME: root
+      SPRING.DATASOURCE.URL: jdbc:mysql://cambio-db/cambio_service?useSSL=false&serverTimezone=UTC&tlsVersions=TLSv1.2
+      SPRING.DATASOURCE.USERNAME: docker
       SPRING.DATASOURCE.PASSWORD: admin123
-      FLYWAY.URL: jdbc:mysql://cambio-db:3308/cambio_service?useSSL=false&serverTimezone=UTC&enabledTLSProtocols=TLSv1.2
-      FLYWAY.USER: root
-      FLYWAY.PASSWORD: admin123
+      SPRING.FLYWAY.URL: jdbc:mysql://cambio-db/cambio_service?useSSL=false&serverTimezone=UTC&tlsVersions=TLSv1.2
+      SPRING.FLYWAY.USER: docker
+      SPRING.FLYWAY.PASSWORD: admin123
     ports:
       - 8000:8000
     depends_on:
@@ -83,6 +83,30 @@ services:
       - cambio-db
     networks:
       - calixto-network
+  book-service:
+    image: jacksoncalixto/cambio-service
+    restart: always
+    build: 
+      context: .
+      dockerfile: 10-book-service/Dockerfile
+    environment:
+      TZ: America/Sao_Paulo
+      EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
+      SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411
+      SPRING.DATASOURCE.URL: jdbc:mysql://book-db/book_service?useSSL=false&serverTimezone=UTC&tlsVersions=TLSv1.2
+      SPRING.DATASOURCE.USERNAME: docker
+      SPRING.DATASOURCE.PASSWORD: admin123
+      SPRING.FLYWAY.URL: jdbc:mysql://book-db/book_service?useSSL=false&serverTimezone=UTC&tlsVersions=TLSv1.2
+      SPRING.FLYWAY.USER: docker
+      SPRING.FLYWAY.PASSWORD: admin123
+    ports:
+      - 8100:8100
+    depends_on:
+      - naming-server
+      - book-db
+      - cambio-service
+    networks:
+      - calixto-network
 networks:
   calixto-network:
-    driver: bridge
+    driver: bridgecd 

@@ -9,8 +9,8 @@ spring:
     name: cambio-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3308/cambio_service?useSSL=false&serverTimezone=UTC&tlsVersions=TLSv1.2
-    username: docker
+    url: jdbc:mysql://localhost:3306/cambio_service?useSSL=false&serverTimezone=UTC&tlsVersions=TLSv1.2
+    username: root
     password: admin123
   jpa:
     hibernate:
@@ -20,8 +20,9 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
   flyway:
-    url: jdbc:mysql://localhost:3308/cambio_service?useSSL=false&serverTimezone=UTC&tlsVersions=TLSv1.2
-    user: docker
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cambio_service?useSSL=false&serverTimezone=UTC&tlsVersions=TLSv1.2
+    user: root
     password: admin123
   sleuth:
     sampler:
