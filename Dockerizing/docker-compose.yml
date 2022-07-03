@@ -84,7 +84,7 @@ services:
     networks:
       - calixto-network
   book-service:
-    image: jacksoncalixto/cambio-service
+    image: jacksoncalixto/book-service
     restart: always
     build: 
       context: .
@@ -104,9 +104,8 @@ services:
     depends_on:
       - naming-server
       - book-db
-      - cambio-service
     networks:
       - calixto-network
 networks:
   calixto-network:
-    driver: bridgecd 
+    driver: bridge
