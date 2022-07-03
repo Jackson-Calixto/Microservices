@@ -37,3 +37,5 @@ SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411
 EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://localhost:8761/eureka
 
 docker-compose down --remove-orphans
+
+RabbitMQ
