@@ -39,3 +39,11 @@ EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://localhost:8761/eureka
 docker-compose down --remove-orphans
 
 RabbitMQ
+
+Repository Settings Add Secret DOCKER_USERNAME/DOCKER_PASSWORD
+Continuous Integration with Github
+Github action: Publish Docker Container
+Catching Variables Github Actions
+${{secrets.DOCKER_USERNAME}}
+
+[![Continuous Integration with Github](https://github.com/Jackson-Calixto/Microservices/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/Jackson-Calixto/Microservices/actions/workflows/docker-publish.yml)
